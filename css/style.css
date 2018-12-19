@@ -1,0 +1,129 @@
+/* Clearfix */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Bungee', cursive;
+
+}
+
+/* Container style */
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* First column */
+
+.container__col-1{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container__heading {
+    /* Safari */
+    -webkit-transform: rotate(-180deg);
+    /* Firefox */
+    -moz-transform: rotate(-180deg);
+    /* IE */
+    -ms-transform: rotate(-180deg);
+    /* Opera */
+    -o-transform: rotate(-180deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6);
+}
+
+.container__list {
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.container__list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 5vh;
+}
+
+.container__list li {
+    padding: 5px;
+}
+
+.container__list a {
+    color: #000000;
+}
+
+.container__pagination {
+    display: flex;
+    margin-top: 5vh;
+}
+
+.container__pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.container__page--active {
+    background-color: #24acaf;
+    color: white;
+}
+
+.container__page:hover {
+    background-color: #ddd;
+}
+
+/* Second column */
+
+.container__col-2{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container__circle {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container__circle:hover {
+    border-radius: 0;
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+@media (max-width: 800px) {
+    .container{
+        flex-direction: column;
+    }
+    .container__col-1{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .container__col-2{
+        width: 100%;
+        align-items: flex-start;
+    }
+    .container__list ul {
+        padding-left: 0;
+    }
+    .container__pagination a {
+        padding: 4px 8px;
+    }
