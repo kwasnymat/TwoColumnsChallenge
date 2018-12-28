@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import paginate from "./paginate.js";
+import SecondColumn from "./secondcolumn.jsx";
+import FirstColumn from "./firstcolumn.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -77,83 +79,6 @@ class App extends React.Component {
         />
         <SecondColumn {...this.state} />
       </div>
-    );
-  }
-}
-
-const Header = ({ header }) => <h1 className="container__heading">{header}</h1>;
-
-const FirstColumn = props => {
-  return <List {...props} />;
-};
-
-class List extends React.Component {
-  render() {
-    const {
-      photos,
-      startIndex,
-      endIndex,
-      pages,
-      currentPage
-    } = this.props.pagination;
-    return (
-      <div className="container__col-1">
-        <Header header="Open-E Poland" />
-        <div className="container__list">
-          <ul>
-            {photos.slice(startIndex, endIndex).map((photo, index) => (
-              <li key={index}>
-                <a
-                  className="container__link"
-                  href={photo.thumbnailUrl}
-                  onClick={e => this.props.handlePicture(e)}
-                >
-                  {photo.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="container__pagination">
-          {pages.map((page, index) =>
-            currentPage === page ? (
-              <a key={index} href="#" className="container__page--active">
-                {page}
-              </a>
-            ) : (
-              <a
-                key={index}
-                href="#"
-                className="container__page"
-                onClick={e => this.props.handlePagination(e)}
-              >
-                {page}
-              </a>
-            )
-          )}
-        </div>
-      </div>
-    );
-  }
-}
-
-class SecondColumn extends React.Component {
-  render() {
-    return (
-      <div className="container__col-2">
-        {this.props.showCircle ? <Picture image={this.props.link} /> : null}
-      </div>
-    );
-  }
-}
-
-class Picture extends React.Component {
-  render() {
-    return (
-      <div
-        className="container__circle"
-        style={{ backgroundImage: `url(${this.props.image})` }}
-      />
     );
   }
 }
